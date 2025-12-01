@@ -4,6 +4,8 @@ import pickle
 import os
 import cv2
 import sys
+import numpy as np
+
 sys.path.append('../')
 
 def get_center_of_bbox(bbox):
