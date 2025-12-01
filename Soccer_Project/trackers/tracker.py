@@ -190,7 +190,7 @@ class Tracker:
                     frame = self.draw_triangle(frame, player["bbox"], (0,0,255))
 
             for _, referee in referee_dict.items():
-                frame = self.draw_ellipse(frame, referee["bbox",(0,255,255)])
+                frame = self.draw_ellipse(frame, referee["bbox"],(0,255,255))
 
             
             for track_id, ball in ball_dict.items():
