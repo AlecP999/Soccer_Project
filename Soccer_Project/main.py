@@ -22,6 +22,7 @@ def save_video(video_frames, video_path):
         out.write(frame)
     out.release()
 
+#TODO: team ball, camera, team assigner
 def main():
     # read the video
     video_frames = read_video("Soccer_Project/input_videos/soccer.mp4")
@@ -31,7 +32,8 @@ def main():
     tracks = tracker.get_object_tracks(video_frames, read_from_stub=True, stub_path='Soccer_Project/stubs/track_stubs.pkl')
 
     tracker.add_position_to_tracks(tracks)
-
+    
+    #TODO: team ball control
     team_ball_control = []
 
     output_video_frames = tracker.draw_annotation(video_frames, tracks, team_ball_control)
