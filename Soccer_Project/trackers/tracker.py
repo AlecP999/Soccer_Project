@@ -5,6 +5,7 @@ import os
 import cv2
 import sys
 import numpy as np
+import pandas as pd
 
 sys.path.append('../')
 
@@ -195,8 +196,10 @@ class Tracker:
 
         team1_num_frames = team_ball_control_till_frame[team_ball_control_till_frame==1].shape[0]
         team2_num_frames = team_ball_control_till_frame[team_ball_control_till_frame==2].shape[0]
-        team1 = team1_num_frames/(team1_num_frames + team2_num_frames)
-        team2 = team2_num_frames/(team1_num_frames + team2_num_frames)
+
+        # add 1 here to avoid error, we wiil get rid of the 1 after we switch the model
+        team1 = team1_num_frames/(team1_num_frames + team2_num_frames+1)
+        team2 = team2_num_frames/(team1_num_frames + team2_num_frames+1)
 
         cv2.putText(frame, f"Team 1 Ball Control: {team1*100:.2f}%", (1400,900), cv2.FONT_HERSHEY_SIMPLEX,1, (0,0,0),3)
 
